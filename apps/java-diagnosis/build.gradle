@@ -1,0 +1,53 @@
+// Declare the plugins in this project
+plugins {
+  // Apply the conventions plugin.
+  id 'plugin.conventions.java-application-flat'
+}
+
+group = 'llc'
+// The jar version, <project name>-<version>.jar
+version = '0.1.0'
+// $buildDir/libs/${project.name}-${project.version}.jar
+// override 'project.name'
+archivesBaseName = 'llc.java.play.diagnosis'
+
+// custom properties
+ext {
+  // define the startScript file name: '$distributionBinName[.bat]'
+  distributionBinName = 'llc-java-play-diagnosis'
+}
+
+tasks.named('jar') {
+  manifest {
+    attributes(
+      // set title and version
+      'Implementation-Title': 'LLC.Java.Play.Diagnosis',
+      'Implementation-Version': archiveVersion,
+      // turn on automatic java module, declare the module name
+      'Automatic-Module-Name': 'llc.java.play.diagnosis'
+    )
+  }
+}
+
+// define the dependencies
+dependencies {
+  // // module name: com.google.gson
+  // implementation 'com.google.code.gson:gson:2.8.6'
+  // // module name: org.apache.commons.lang3
+  // implementation 'org.apache.commons:commons-lang3:3.10'
+
+  // module name: playground.summary
+  // implementation project(':libs:lib-java-b')
+}
+
+application {
+  // Define the main class for the application.
+  mainClass = 'play.diagnosis.Main'
+  // Java module, defined in module-info.java
+  mainModule = 'llc.java.play.diagnosis'
+}
+
+test {
+  // Don't stop when testing failed
+  ignoreFailures = false
+}

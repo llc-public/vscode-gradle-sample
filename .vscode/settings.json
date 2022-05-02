@@ -1,0 +1,34 @@
+{
+  "editor.tabSize": 2,
+  "editor.formatOnType": true,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "search.useIgnoreFiles": false,
+  "markdown-preview-enhanced.enableExtendedTableSyntax": true,
+  "taskExplorer.enableSideBar": true,
+  "taskExplorer.enableExplorerView": false,
+  "taskExplorer.groupSeparator": "-",
+  "taskExplorer.clickAction": "Open",
+  "taskExplorer.showExecuteWithArgumentsButton": true,
+  "taskExplorer.showExecuteWithNoTerminalButton": true,
+  "taskExplorer.enableMake": false,
+  "taskExplorer.enableGradle": false,
+  "taskExplorer.enableMaven": false,
+  "taskExplorer.enableBatch": false,
+  "gradle.nestedProjects": true,
+  "gradle.javaDebug.cleanOutput": true,
+  "gradle.debug": false,
+  "gradleLang.trace.server": "off",
+  "cSpell.userWords": [
+    "Xunit"
+  ],
+  "java.format.settings.url": ".vscode/eclipse-java-google-style.xml",
+  "java.format.settings.profile": "GoogleStyle",
+  "java.debug.settings.enableRunDebugCodeLens": false,
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "java.dependency.packagePresentation": "hierarchical",
+  "java.trace.server": "off",
+  "[java]": {
+    "editor.detectIndentation": false
+  }
+}

@@ -1,0 +1,10 @@
+/*
+ * The conventions plugin only for java application
+ */
+plugins {
+  // Apply the application plugin
+  id 'plugin.conventions.java-application'
+
+  // Apply the convention plugin
+  id 'plugin.conventions.java-sourcesets'
+}

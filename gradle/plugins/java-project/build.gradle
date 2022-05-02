@@ -1,0 +1,30 @@
+plugins {
+  // Support convention plugins written in Groovy.
+  // Convention plugins are build scripts in 'src/main' that automatically become available as plugins in the main build.
+  id 'groovy-gradle-plugin'
+}
+
+// customize source files
+// default convention is:
+//   src/main/groovy/<package dirs>/*.java
+//   src/test/groovy/<package dirs>/*.java
+// new structure:
+//    src/*.gradle
+//    test/*.gradle
+sourceSets {
+  main {
+    groovy {
+      srcDirs = ['src']
+    }
+  }
+  test {
+    groovy {
+      srcDirs = ['test']
+    }
+  }
+}
+
+repositories {
+  // Use the plugin portal to apply community plugins in convention plugins.
+  gradlePluginPortal()
+}

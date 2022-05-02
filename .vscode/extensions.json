@@ -1,0 +1,88 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=827846
+  // for the documentation about the extensions.json format
+  "recommendations": [
+    //// java primary
+    // extension pack
+    "vscjava.vscode-java-pack",
+    // language
+    "redhat.java",
+    "fwcd.kotlin",
+    // debug
+    "vscjava.vscode-java-debug",
+    "redhat.vscode-community-server-connector",
+    // test
+    "vscjava.vscode-java-test",
+    // lint
+    "shengchen.vscode-checkstyle",
+    // spring boot
+    "Pivotal.vscode-boot-dev-pack",
+    "vscjava.vscode-spring-initializr",
+    "vscjava.vscode-spring-boot-dashboard",
+    "Pivotal.vscode-spring-boot",
+    // utils
+    "dgileadi.java-decompiler",
+    // project manager
+    "vscjava.vscode-maven",
+    "vscjava.vscode-gradle",
+    "naco-siren.gradle-language",
+    "vscjava.vscode-java-dependency",
+    //// language/sdk format
+    "redhat.vscode-yaml",
+    "ahebrank.yaml2json",
+    "ionutvmi.reg",
+    "davidwang.ini-for-vscode",
+    "mikestead.dotenv",
+    "ms-python.python",
+    "zxh404.vscode-proto3",
+    "scala-lang.scala",
+    "ms-vscode.powershell",
+    //// develop tools
+    // lint
+    "sonarsource.sonarlint-vscode",
+    // code formatter
+    "editorconfig.editorconfig",
+    "wmaurer.change-case",
+    "christian-kohler.path-intellisense",
+    // code metrics
+    "kisstkondoros.vscode-codemetrics",
+    // code document
+    "gruntfuggly.todo-tree",
+    "visualstudioexptteam.vscodeintellicode",
+    // unit test
+    "hbenl.vscode-test-explorer",
+    "connorshea.vscode-test-explorer-status-bar",
+    "littlefoxteam.vscode-python-test-adapter",
+    // git
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+    "codezombiech.gitignore",
+    // debugger
+    "firefox-devtools.vscode-firefox-debug",
+    // CM, provisioning, utility
+    "ms-vscode-remote.remote-containers",
+    "ms-vscode-remote.remote-ssh",
+    "ms-vscode-remote.remote-ssh-edit",
+    // for Windows
+    "ms-vscode-remote.remote-wsl",
+    //// project manager
+    "alefragnani.project-manager",
+    //// co-work
+    "ms-vsliveshare.vsliveshare",
+    //// document, format
+    "stkb.rewrap",
+    "streetsidesoftware.code-spell-checker",
+    "tomoki1207.pdf",
+    "shardulm94.trailing-spaces",
+    "cssho.vscode-svgviewer",
+    "yzane.markdown-pdf",
+    "shd101wyy.markdown-preview-enhanced",
+    //// utilities
+    "ibm.output-colorizer",
+    "alefragnani.bookmarks",
+    "satokaz.vscode-toggleproxy",
+    "ho-wan.setting-toggle",
+    "pkief.material-icon-theme",
+    "techer.open-in-browser",
+  ]
+}

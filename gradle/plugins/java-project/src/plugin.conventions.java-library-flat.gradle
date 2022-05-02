@@ -1,0 +1,10 @@
+/*
+ * The conventions plugin only for java library
+ */
+plugins {
+  // Apply the java-library plugin
+  id 'plugin.conventions.java-library'
+
+  // Apply the convention plugin
+  id 'plugin.conventions.java-sourcesets'
+}

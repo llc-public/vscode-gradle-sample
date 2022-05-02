@@ -1,0 +1,35 @@
+/*
+ * The conventions plugin only for java application
+ */
+plugins {
+  // Apply the java application plugin
+  id 'application'
+
+  // Apply the convention plugins
+  id 'plugin.conventions.java-base'
+  id 'plugin.conventions.jacoco'
+}
+
+// Lazy evaulate project variables
+// https://docs.gradle.org/current/javadoc/org/gradle/api/invocation/Gradle.html#projectsEvaluated-groovy.lang.Closure-
+gradle.projectsEvaluated {
+  // Set the attributes for files in build/distributions
+  // Requires plugin: 'distribution' which included by 'application'
+  // $buildDir/distributions/${distributionBaseName}-${project.version}.tar|zip
+  distributions {
+    main {
+      // 'archivesBaseName' is set in project build.gradle file
+      // if not set, rollback to use default 'project.name'
+      distributionBaseName = "${project.archivesBaseName}"
+    }
+  }
+
+  // change the startScripts filename(bin/${applicationName}[.bat]) in archived distribution file(.tar|zip)
+  startScripts {
+    // 'distributionBinName' is set in project build.gradle file
+    // if not set, rollback to use 'project.distributionBaseName'
+    if (project.hasProperty('distributionBinName')) {
+      applicationName = "${project.distributionBinName}"
+    }
+  }
+}

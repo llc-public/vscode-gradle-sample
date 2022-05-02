@@ -1,0 +1,25 @@
+/*
+ * The common conventions plugin for java application and library
+ */
+plugins {
+  // Apply the jacoco plugin
+  id 'jacoco'
+}
+
+tasks.named('test') {
+  // Use JUnit Platform for unit tests.
+  useJUnitPlatform()
+}
+
+test {
+  // Don't stop when testing failed
+  ignoreFailures = true
+}
+
+jacocoTestReport {
+  reports {
+    xml.enabled true
+    html.enabled true
+  }
+}
+check.dependsOn jacocoTestReport

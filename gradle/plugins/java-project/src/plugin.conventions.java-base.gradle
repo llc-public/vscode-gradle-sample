@@ -1,0 +1,42 @@
+/*
+ * The common conventions plugin for java application and library
+ */
+
+// Java plugin settings
+java {
+  // set the minimal java version to 11
+  sourceCompatibility = JavaVersion.VERSION_11
+  targetCompatibility = JavaVersion.VERSION_11
+  // toolchain {
+  //   languageVersion = JavaLanuageVersion.of(11)
+  // }
+  // package Javadoc into jar
+  // withJavaDocJar()
+
+  // package source codes into jar
+  // withSourcesJar()
+
+  // disable Java Modular for all tasks
+  // modularity.inferModulePath = false
+}
+
+// set java compiler options
+compileJava {
+  options.incremental = true
+  options.fork = true
+  options.failOnError = false
+
+  // user project version or define one directly
+  options.javaModuleVersion = provider { project.version }
+
+  // disable Java Modular for this task
+  // modularity.inferModulePath = false
+}
+
+dependencies {
+  // This dependency is used by the application.
+  implementation 'com.google.guava:guava:30.1.1-jre'
+
+  // Use JUnit Jupiter for testing.
+  testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+}

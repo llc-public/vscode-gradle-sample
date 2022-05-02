@@ -1,0 +1,8 @@
+rootProject.name = 'gradle-projects'
+
+// applications
+// this subprojects cause vscode gradle plugin show duplicated tasks
+include 'apps:java-hello3'
+
+// this subprojects has no such issue
+include 'java-hello4'

@@ -1,0 +1,133 @@
+/*
+ * The conventions plugin only for java application
+ */
+plugins {
+  // Apply the java application plugin
+  id 'application'
+
+  // Apply the jacoco plugin
+  id 'jacoco'
+}
+
+group = 'llc'
+// The jar version, <project name>-<version>.jar
+version = '0.1.0'
+// $buildDir/libs/${project.name}-${project.version}.jar
+// override 'project.name'
+archivesBaseName = 'llc.java.play.hello'
+
+// Set the attributes for files in build/distributions
+// Requires plugin: 'distribution' which included by 'application'
+// $buildDir/distributions/${distributionBaseName}-${project.version}.tar|zip
+distributions {
+  main {
+    // 'archivesBaseName' is set in project build.gradle file
+    // if not set, rollback to use default 'project.name'
+    distributionBaseName = "${project.archivesBaseName}"
+  }
+}
+
+// change the startScripts filename(bin/${applicationName}[.bat]) in archived distribution file(.tar|zip)
+startScripts {
+  // 'distributionBinName' is set in project build.gradle file
+  // if not set, rollback to use 'project.distributionBaseName'
+  if (project.hasProperty('distributionBinName')) {
+    applicationName = "${project.distributionBinName}"
+  }
+}
+
+// Change source dirs to make it flat
+// default:
+//   src/main/java/<package dirs>/*.java
+//   src/main/java/module-info.java
+//   src/test/java/<package dirs>/*.java
+// new:
+//    src/*.java
+//    src/module-info.java
+//    test/*.java
+sourceSets {
+  main {
+    java {
+      // cannot nest resources
+      exclude '**/resources/**'
+      srcDirs = ['src']
+    }
+    resources {
+      srcDirs = ['src/resources']
+    }
+  }
+  test {
+    java {
+      // cannot nest resources
+      exclude '**/resources/**'
+      srcDirs = ['test']
+    }
+    resources {
+      srcDirs = ['test/resources']
+    }
+  }
+}
+
+// Java plugin settings
+java {
+  // set the minimal java version to 11
+  sourceCompatibility = JavaVersion.VERSION_11
+  targetCompatibility = JavaVersion.VERSION_11
+  // toolchain {
+  //   languageVersion = JavaLanuageVersion.of(11)
+  // }
+  // package Javadoc into jar
+  // withJavaDocJar()
+
+  // package source codes into jar
+  // withSourcesJar()
+
+  // disable Java Modular for all tasks
+  // modularity.inferModulePath = false
+}
+
+// set java compiler options
+compileJava {
+  options.incremental = true
+  options.fork = true
+  options.failOnError = false
+
+  // user project version or define one directly
+  options.javaModuleVersion = provider { project.version }
+
+  // disable Java Modular for this task
+  // modularity.inferModulePath = false
+}
+
+dependencies {
+  // This dependency is used by the application.
+  implementation 'com.google.guava:guava:30.1.1-jre'
+
+  // Use JUnit Jupiter for testing.
+  testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+}
+
+application {
+  // Define the main class for the application.
+  mainClass = 'play.hello.Main'
+  // Java module, defined in module-info.java
+  mainModule = 'llc.java.play.hello'
+}
+
+tasks.named('test') {
+  // Use JUnit Platform for unit tests.
+  useJUnitPlatform()
+}
+
+test {
+  // Don't stop when testing failed
+  ignoreFailures = true
+}
+
+jacocoTestReport {
+  reports {
+    xml.enabled true
+    html.enabled true
+  }
+}
+check.dependsOn jacocoTestReport

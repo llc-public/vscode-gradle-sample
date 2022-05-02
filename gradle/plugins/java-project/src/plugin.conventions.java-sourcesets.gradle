@@ -1,0 +1,35 @@
+/*
+ * The common conventions plugin for java application and library
+ */
+
+// Change source dirs to make it flat
+// default:
+//   src/main/java/<package dirs>/*.java
+//   src/main/java/module-info.java
+//   src/test/java/<package dirs>/*.java
+// new:
+//    src/*.java
+//    src/module-info.java
+//    test/*.java
+sourceSets {
+  main {
+    java {
+      // cannot nest resources
+      exclude '**/resources/**'
+      srcDirs = ['src']
+    }
+    resources {
+      srcDirs = ['src/resources']
+    }
+  }
+  test {
+    java {
+      // cannot nest resources
+      exclude '**/resources/**'
+      srcDirs = ['test']
+    }
+    resources {
+      srcDirs = ['test/resources']
+    }
+  }
+}
